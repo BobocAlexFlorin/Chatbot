@@ -1,11 +1,14 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # hyperparameters
 batch_size = 32 # number of independent sequences being processed in parallel
 block_size = 8 # the maximum context length for predictions
-max_iters = 3000
+max_iters = 300000
 eval_interval = 300
 learning_rate = 1e-2
 device = 'cuda' if torch.cuda.is_available() else 'cpu' # runs on gpu, else cpu
